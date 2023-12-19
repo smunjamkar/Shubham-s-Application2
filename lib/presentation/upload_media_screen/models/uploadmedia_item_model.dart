@@ -1,0 +1,3 @@
+class UploadmediaItemModel {String? id = "";
+
+ }

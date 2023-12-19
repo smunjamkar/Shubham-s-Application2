@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:shubham_s_application2/presentation/interactive_faqs_screen/models/interactive_faqs_model.dart';part 'interactive_faqs_event.dart';part 'interactive_faqs_state.dart';class InteractiveFaqsBloc extends Bloc<InteractiveFaqsEvent, InteractiveFaqsState> {InteractiveFaqsBloc(InteractiveFaqsState initialState) : super(initialState) { on<InteractiveFaqsInitialEvent>(_onInitialize); on<ChangeDropDownEvent>(_changeDropDown); }
+
+_changeDropDown(ChangeDropDownEvent event, Emitter<InteractiveFaqsState> emit, ) { emit(state.copyWith(selectedDropDownValue: event.value)); } 
+List<SelectionPopupModel> fillDropdownItemList() { return [SelectionPopupModel(id: 1, title: "Item One", isSelected: true), SelectionPopupModel(id: 2, title: "Item Two"), SelectionPopupModel(id: 3, title: "Item Three")]; } 
+_onInitialize(InteractiveFaqsInitialEvent event, Emitter<InteractiveFaqsState> emit, ) async  { emit(state.copyWith(textPlaceholderController: TextEditingController())); emit(state.copyWith(interactiveFaqsModelObj: state.interactiveFaqsModelObj?.copyWith(dropdownItemList: fillDropdownItemList()))); } 
+ }

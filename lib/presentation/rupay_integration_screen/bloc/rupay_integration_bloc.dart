@@ -1,0 +1,4 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:shubham_s_application2/presentation/rupay_integration_screen/models/rupay_integration_model.dart';part 'rupay_integration_event.dart';part 'rupay_integration_state.dart';class RupayIntegrationBloc extends Bloc<RupayIntegrationEvent, RupayIntegrationState> {RupayIntegrationBloc(RupayIntegrationState initialState) : super(initialState) { on<RupayIntegrationInitialEvent>(_onInitialize); }
+
+_onInitialize(RupayIntegrationInitialEvent event, Emitter<RupayIntegrationState> emit, ) async  { emit(state.copyWith(inputFieldController: TextEditingController(), priceOneController: TextEditingController(), inputFieldOneController: TextEditingController(), priceTwoController: TextEditingController())); } 
+ }

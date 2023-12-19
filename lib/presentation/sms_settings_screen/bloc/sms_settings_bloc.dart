@@ -1,0 +1,7 @@
+import '../models/smssettings_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/smssettings_item_model.dart';import 'package:shubham_s_application2/presentation/sms_settings_screen/models/sms_settings_model.dart';part 'sms_settings_event.dart';part 'sms_settings_state.dart';class SmsSettingsBloc extends Bloc<SmsSettingsEvent, SmsSettingsState> {SmsSettingsBloc(SmsSettingsState initialState) : super(initialState) { on<SmsSettingsInitialEvent>(_onInitialize); on<ChangeSwitchEvent>(_changeSwitch); on<SmssettingsItemEvent>(_smssettingsItem); }
+
+_changeSwitch(ChangeSwitchEvent event, Emitter<SmsSettingsState> emit, ) { emit(state.copyWith(isSelectedSwitch: event.value)); } 
+_smssettingsItem(SmssettingsItemEvent event, Emitter<SmsSettingsState> emit, ) { List<SmssettingsItemModel> newList = List<SmssettingsItemModel>.from(state.smsSettingsModelObj!.smssettingsItemList); newList[event.index] = newList[event.index].copyWith(isSelectedSwitch: event.isSelectedSwitch); emit(state.copyWith(smsSettingsModelObj: state.smsSettingsModelObj?.copyWith(smssettingsItemList: newList))); } 
+List<SmssettingsItemModel> fillSmssettingsItemList() { return List.generate(2, (index) => SmssettingsItemModel()); } 
+_onInitialize(SmsSettingsInitialEvent event, Emitter<SmsSettingsState> emit, ) async  { emit(state.copyWith(isSelectedSwitch: false)); emit(state.copyWith(smsSettingsModelObj: state.smsSettingsModelObj?.copyWith(smssettingsItemList: fillSmssettingsItemList()))); } 
+ }

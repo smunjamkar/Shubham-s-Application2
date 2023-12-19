@@ -1,0 +1,3 @@
+class FanwallItemModel {String? id = "";
+
+ }

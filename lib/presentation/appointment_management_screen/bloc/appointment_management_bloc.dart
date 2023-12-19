@@ -1,0 +1,8 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listtabs_item_model.dart';import '../models/listsunnumber_item_model.dart';import 'package:shubham_s_application2/presentation/appointment_management_screen/models/appointment_management_model.dart';part 'appointment_management_event.dart';part 'appointment_management_state.dart';class AppointmentManagementBloc extends Bloc<AppointmentManagementEvent, AppointmentManagementState> {AppointmentManagementBloc(AppointmentManagementState initialState) : super(initialState) { on<AppointmentManagementInitialEvent>(_onInitialize); on<ChangeDropDownEvent>(_changeDropDown); }
+
+_onInitialize(AppointmentManagementInitialEvent event, Emitter<AppointmentManagementState> emit, ) async  { emit(state.copyWith(appointmentManagementModelObj: state.appointmentManagementModelObj?.copyWith(listtabsItemList: fillListtabsItemList(), dropdownItemList: fillDropdownItemList(), listsunnumberItemList: fillListsunnumberItemList()))); } 
+_changeDropDown(ChangeDropDownEvent event, Emitter<AppointmentManagementState> emit, ) { emit(state.copyWith(selectedDropDownValue: event.value)); } 
+List<ListtabsItemModel> fillListtabsItemList() { return List.generate(3, (index) => ListtabsItemModel()); } 
+List<SelectionPopupModel> fillDropdownItemList() { return [SelectionPopupModel(id: 1, title: "Item One", isSelected: true), SelectionPopupModel(id: 2, title: "Item Two"), SelectionPopupModel(id: 3, title: "Item Three")]; } 
+List<ListsunnumberItemModel> fillListsunnumberItemList() { return List.generate(6, (index) => ListsunnumberItemModel()); } 
+ }

@@ -1,0 +1,3 @@
+class ListrectangletenItemModel {String? id = "";
+
+ }

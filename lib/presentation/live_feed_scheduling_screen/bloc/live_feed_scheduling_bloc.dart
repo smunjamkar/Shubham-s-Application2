@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listprofileimglarge9_item_model.dart';import 'package:shubham_s_application2/presentation/live_feed_scheduling_screen/models/live_feed_scheduling_model.dart';part 'live_feed_scheduling_event.dart';part 'live_feed_scheduling_state.dart';class LiveFeedSchedulingBloc extends Bloc<LiveFeedSchedulingEvent, LiveFeedSchedulingState> {LiveFeedSchedulingBloc(LiveFeedSchedulingState initialState) : super(initialState) { on<LiveFeedSchedulingInitialEvent>(_onInitialize); }
+
+_onInitialize(LiveFeedSchedulingInitialEvent event, Emitter<LiveFeedSchedulingState> emit, ) async  { emit(state.copyWith(liveFeedSchedulingModelObj: state.liveFeedSchedulingModelObj?.copyWith(listprofileimglarge9ItemList: fillListprofileimglarge9ItemList()))); } 
+List<Listprofileimglarge9ItemModel> fillListprofileimglarge9ItemList() { return List.generate(2, (index) => Listprofileimglarge9ItemModel()); } 
+ }

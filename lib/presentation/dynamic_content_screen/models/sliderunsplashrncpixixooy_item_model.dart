@@ -1,0 +1,3 @@
+class SliderunsplashrncpixixooyItemModel {String? id = "";
+
+ }

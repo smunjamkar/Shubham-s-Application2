@@ -1,0 +1,3 @@
+class UseravatarItemModel {String? id = "";
+
+ }
